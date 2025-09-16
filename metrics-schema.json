@@ -1,0 +1,53 @@
+{
+    "Main Metrics": [
+        "Cumulative Return [%]",
+        "CAGR [%]",
+        "Volatility [%]",
+        "Sharpe",
+        "Sortino",
+        "Calmar",
+        "Max Drawdown (MD) [%]",
+        "Duration of MD [days]",
+        "Max Drawdown Duration (MDD) [days]",
+        "Drawdown of MDD [%]"
+    ],
+    "Returns Metrics": [
+        "1-day VaR (95%)",
+        "1-month VaR (99%)",
+        "CVaR (95%)",
+        "CVaR (99%)",
+        "Gain/Pain Ratio (1M)",
+        "Tail Ratio",
+        "Omega Ratio",
+        "Outlier Win Ratio",
+        "Outlier Loss Ratio",
+        "Gini Coefficient"
+    ],
+    "Rolling Metrics": [
+        "Rolling Sharpe 90d Mean",
+        "Rolling Sharpe 90d Median",
+        "Rolling Sharpe 90d Last",
+        "Rolling Sharpe 365d Mean",
+        "Rolling Sharpe 365d Median",
+        "Rolling Sharpe 365d Last"
+    ],
+    "Cumulative Return Metrics": [
+        "MTD [%]",
+        "3M [%]",
+        "6M [%]",
+        "YTD [%]",
+        "Best Day [%]",
+        "Worst Day [%]",
+        "Best Month [%]",
+        "Worst Month [%]",
+        "Best Year [%]",
+        "Worst Year [%]"
+    ],
+    "Benchmark Metrics": [
+        "Alpha",
+        "Beta",
+        "Information Ratio",
+        "Treynor Ratio",
+        "Correlation"
+    ]
+}
