@@ -5,7 +5,7 @@ const fs = require("fs");
 const { transformData, filterRawData } = require("./utils/dataUtils");
 
 const app = express();
-const PORT = 5000;
+const PORT = process.env.PORT || 5000;
 
 app.use(cors());
 
