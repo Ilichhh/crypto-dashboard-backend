@@ -4,4 +4,5 @@
 
 - **GET `/api/metrics`**
 - **GET `/api/metrics/schema`**
+- **GET `/api/daily-returns`**
 - **GET `/health`**
