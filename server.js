@@ -2,19 +2,19 @@ const express = require("express");
 const cors = require("cors");
 const fs = require("fs");
 
-const { transformData, filterRawData } = require("./utils/dataUtils");
+const { transformData, filterRawData, readCSV } = require("./utils/dataUtils");
 
 const app = express();
 const PORT = process.env.PORT || 5000;
 
 app.use(cors());
 
-app.get("/api/metrics", (req, res) => {
+app.get("/api/metrics", async (req, res) => {
   try {
-    const rawData = fs.readFileSync("./data.json");
+    const rawData = await fs.promises.readFile("./data.json", "utf-8");
     const data = JSON.parse(rawData);
-    let selectedMetrics = req.query.metrics;
 
+    let selectedMetrics = req.query.metrics;
     if (selectedMetrics && !Array.isArray(selectedMetrics)) {
       selectedMetrics = [selectedMetrics];
     }
@@ -29,14 +29,24 @@ app.get("/api/metrics", (req, res) => {
   }
 });
 
-app.get("/api/metrics/schema", (req, res) => {
+app.get("/api/metrics/schema", async (req, res) => {
   try {
-    const rawData = fs.readFileSync("./metrics-schema.json");
+    const rawData = await fs.promises.readFile("./metrics-schema.json", "utf-8");
     const data = JSON.parse(rawData);
     res.status(200).json(data);
   } catch (err) {
     console.error(err);
     res.status(500).json({ error: "Failed to read JSON file" });
+  }
+});
+
+app.get("/api/daily-returns", async (req, res) => {
+  try {
+    const data = await readCSV("daily-returns.csv");
+    res.status(200).json(data);
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ error: "Failed to read CSV file" });
   }
 });
 
